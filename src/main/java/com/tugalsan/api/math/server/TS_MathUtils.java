@@ -19,7 +19,7 @@ public class TS_MathUtils {
         if (numerator == 0d) {
             return "0";
         }
-        var val = numerator / denominator;
+        var val = 100d * numerator / denominator;
         if (precision < 0) {
             return String.valueOf(val);
         }
