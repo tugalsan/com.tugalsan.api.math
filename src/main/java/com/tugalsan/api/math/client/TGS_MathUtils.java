@@ -3,6 +3,7 @@ package com.tugalsan.api.math.client;
 import java.util.*;
 import java.util.stream.*;
 import com.tugalsan.api.pack.client.*;
+import com.tugalsan.api.string.client.*;
 
 public class TGS_MathUtils {
 
@@ -215,12 +216,11 @@ public class TGS_MathUtils {
         return dbValue / powerOf10(pow_from0_to9);
     }
 
-    public static long double2Long(double tbValue, int pow_from0_to9) {
-        return Math.round(tbValue * powerOf10(pow_from0_to9));
+    public static long double2Long(double dbValue, int pow_from0_to9) {
+        return Math.round(dbValue * powerOf10(pow_from0_to9));
     }
 
     public static int powerOf10(int pow_from0_to9) {
         return POWERS_OF_10()[pow_from0_to9];
     }
-
 }
