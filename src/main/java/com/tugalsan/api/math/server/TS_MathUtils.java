@@ -2,14 +2,26 @@ package com.tugalsan.api.math.server;
 
 public class TS_MathUtils {
 
+    public static Integer percentInt(int numerator, int denominator) {
+        return percentInt((double) numerator, (double) denominator);
+    }
+
     public static Integer percentInt(double numerator, double denominator) {
         var val = percentDbl(numerator, denominator, 0);
         return val == null ? null : val.intValue();
     }
 
+    public static Double percentDbl(int numerator, int denominator, int precision) {
+        return percentDbl((double) numerator, (double) denominator, precision);
+    }
+
     public static Double percentDbl(double numerator, double denominator, int precision) {
         var val = percentStr(numerator, denominator, precision);
         return val == null ? null : Double.parseDouble(val);
+    }
+
+    public static String percentStr(int numerator, int denominator, int precision) {
+        return percentStr((double) numerator, (double) denominator, precision);
     }
 
     public static String percentStr(double numerator, double denominator, int precision) {
