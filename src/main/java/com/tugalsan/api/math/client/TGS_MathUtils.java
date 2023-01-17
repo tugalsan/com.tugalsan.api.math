@@ -3,7 +3,6 @@ package com.tugalsan.api.math.client;
 import java.util.*;
 import java.util.stream.*;
 import com.tugalsan.api.pack.client.*;
-import com.tugalsan.api.string.client.*;
 
 public class TGS_MathUtils {
 
@@ -223,4 +222,41 @@ public class TGS_MathUtils {
     public static int powerOf10(int pow_from0_to9) {
         return POWERS_OF_10()[pow_from0_to9];
     }
+
+    public static OptionalDouble average(Double skip, double... val) {
+        return Arrays.stream(val)
+                .filter(i -> skip == null ? true : skip != i)
+                .average();
+    }
+
+    public static OptionalDouble average(Integer skip, int... val) {
+        return Arrays.stream(val)
+                .filter(i -> skip == null ? true : skip != i)
+                .average();
+    }
+
+    public static OptionalInt min(Integer skip, int... val) {
+        return Arrays.stream(val)
+                .filter(i -> skip == null ? true : skip != i)
+                .min();
+    }
+
+    public static OptionalDouble min(Integer skip, double... val) {
+        return Arrays.stream(val)
+                .filter(i -> skip == null ? true : skip != i)
+                .min();
+    }
+
+    public static OptionalInt max(Integer skip, int... val) {
+        return Arrays.stream(val)
+                .filter(i -> skip == null ? true : skip != i)
+                .max();
+    }
+
+    public static OptionalDouble max(Integer skip, double... val) {
+        return Arrays.stream(val)
+                .filter(i -> skip == null ? true : skip != i)
+                .max();
+    }
+
 }
