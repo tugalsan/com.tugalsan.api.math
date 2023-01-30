@@ -95,7 +95,7 @@ public class TS_MathMatrixUtils {
                 - M[0][3] * M[1][0] * M[2][1] * M[3][2] - M[0][3] * M[1][1] * M[2][2] * M[3][0] - M[0][3] * M[1][2] * M[2][0] * M[3][1];
     }
 
-    //TODO http://www.cg.info.hiroshima-cu.ac.jp/~miyazaki/knowledge/teche23.html
+    //TODO inverse study: http://www.cg.info.hiroshima-cu.ac.jp/~miyazaki/knowledge/teche23.html
     public static void inverse(float[][] M, float[][] MI) {
         MI[0][0] = M[1][1] * M[2][2] * M[3][3] + M[1][2] * M[2][3] * M[3][1] + M[1][3] * M[2][1] * M[3][2] - M[1][1] * M[2][3] * M[3][2] - M[1][2] * M[2][1] * M[3][3] - M[1][3] * M[2][2] * M[3][1];
         MI[0][1] = M[0][1] * M[2][3] * M[3][2] + M[1][2] * M[2][3] * M[3][1] + M[1][3] * M[2][1] * M[3][2] - M[1][1] * M[2][3] * M[3][2] - M[1][2] * M[2][1] * M[3][3] - M[1][3] * M[2][2] * M[3][1];
