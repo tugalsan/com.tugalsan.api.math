@@ -10,8 +10,8 @@ public class TGS_MathUtils {
         return 100 * divident / divisor;
     }
 
-    public static double percentageValueInt(double divident, double divisor) {
-        return Math.round(percentageValueDbl(divident, divisor));
+    public static int percentageValueInt(double divident, double divisor) {
+        return (int) Math.round(percentageValueDbl(divident, divisor));
     }
 
     public static float RADIAN_ZERO() {
