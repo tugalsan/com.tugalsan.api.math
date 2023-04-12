@@ -6,39 +6,47 @@ import com.tugalsan.api.pack.client.*;
 
 public class TGS_MathUtils {
 
-    static public float RADIAN_ZERO() {
+    public static double percentageValueDbl(double divident, double divisor) {
+        return 100 * divident / divisor;
+    }
+
+    public static double percentageValueInt(double divident, double divisor) {
+        return Math.round(percentageValueDbl(divident, divisor));
+    }
+
+    public static float RADIAN_ZERO() {
         return (float) Math.toRadians(0);
     }
 
-    static public float RADIAN_PLUS_90() {
+    public static float RADIAN_PLUS_90() {
         return (float) Math.toRadians(90);
     }
 
-    static public float RADIAN_PLUS_180() {
+    public static float RADIAN_PLUS_180() {
         return RADIAN_PLUS_90() + RADIAN_PLUS_90();
     }
 
-    static public float RADIAN_PLUS_270() {
+    public static float RADIAN_PLUS_270() {
         return RADIAN_PLUS_180() + RADIAN_PLUS_90();
     }
 
-    static public float RADIAN_PLUS_360() {
+    public static float RADIAN_PLUS_360() {
         return RADIAN_PLUS_180() + RADIAN_PLUS_180();
     }
 
-    static public float RADIAN_MINUS_90() {
+    public static float RADIAN_MINUS_90() {
         return (float) Math.toRadians(-90);
     }
 
-    static public float RADIAN_MINUS_180() {
+    public static float RADIAN_MINUS_180() {
         return RADIAN_MINUS_90() + RADIAN_MINUS_90();
     }
 
-    static public float RADIAN_MINUS_270() {
+    public static float RADIAN_MINUS_270() {
         return RADIAN_MINUS_180() + RADIAN_MINUS_90();
     }
 
-    static public float RADIAN_MINUS_360() {
+    public static float RADIAN_MINUS_360() {
         return RADIAN_MINUS_180() + RADIAN_MINUS_180();
     }
 
