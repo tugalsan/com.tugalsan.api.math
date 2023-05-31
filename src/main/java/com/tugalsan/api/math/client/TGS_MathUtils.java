@@ -2,7 +2,7 @@ package com.tugalsan.api.math.client;
 
 import java.util.*;
 import java.util.stream.*;
-import com.tugalsan.api.pack.client.*;
+import com.tugalsan.api.tuple.client.*;
 
 public class TGS_MathUtils {
 
@@ -109,8 +109,8 @@ public class TGS_MathUtils {
         return Arrays.stream(input).reduce(0, Integer::sum);
     }
 
-    public static TGS_Pack2<Integer, Integer> findMax_returns_IdAndValue(int[] input) {
-        TGS_Pack2<Integer, Integer> maxIdAndValue = new TGS_Pack2(0, input[0]);
+    public static TGS_Tuple2<Integer, Integer> findMax_returns_IdAndValue(int[] input) {
+        TGS_Tuple2<Integer, Integer> maxIdAndValue = new TGS_Tuple2(0, input[0]);
         IntStream.range(1, input.length).forEachOrdered(i -> {
             if (maxIdAndValue.value1 < input[i]) {
                 maxIdAndValue.value0 = i;
@@ -120,8 +120,8 @@ public class TGS_MathUtils {
         return maxIdAndValue;
     }
 
-    public static TGS_Pack2<Integer, Integer> findMin_returns_IdAndValue(int[] input) {
-        TGS_Pack2<Integer, Integer> minIdAndValue = new TGS_Pack2(0, input[0]);
+    public static TGS_Tuple2<Integer, Integer> findMin_returns_IdAndValue(int[] input) {
+        TGS_Tuple2<Integer, Integer> minIdAndValue = new TGS_Tuple2(0, input[0]);
         IntStream.range(1, input.length).forEachOrdered(i -> {
             if (minIdAndValue.value1 > input[i]) {
                 minIdAndValue.value0 = i;
@@ -131,7 +131,7 @@ public class TGS_MathUtils {
         return minIdAndValue;
     }
 
-    public static Integer convertWeightedInt(int input, TGS_Pack2<Integer, Integer> fromMinMax, TGS_Pack2<Integer, Integer> toMinMax) {
+    public static Integer convertWeightedInt(int input, TGS_Tuple2<Integer, Integer> fromMinMax, TGS_Tuple2<Integer, Integer> toMinMax) {
         if (toMinMax == null || fromMinMax == null) {
             return null;
         }
@@ -158,7 +158,7 @@ public class TGS_MathUtils {
         return toValue > toMinMax.value1 ? toMinMax.value1 : toValue;
     }
 
-    public static Double convertWeightedDbl(double input, TGS_Pack2<Double, Double> fromMinMax, TGS_Pack2<Double, Double> toMinMax) {
+    public static Double convertWeightedDbl(double input, TGS_Tuple2<Double, Double> fromMinMax, TGS_Tuple2<Double, Double> toMinMax) {
         if (toMinMax == null || fromMinMax == null) {
             return null;
         }

@@ -1,7 +1,7 @@
 package com.tugalsan.api.math.server;
 
 import com.tugalsan.api.math.client.*;
-import com.tugalsan.api.pack.client.*;
+import com.tugalsan.api.tuple.client.*;
 import java.util.*;
 
 public class TS_MathCurve {
@@ -11,7 +11,7 @@ public class TS_MathCurve {
     }
 
     final public TS_MathCurveDriver curve;
-    final public List<TGS_Pack3<Double, Double, Double>> table_of_idx_input_output;
+    final public List<TGS_Tuple3<Double, Double, Double>> table_of_idx_input_output;
     final public int tableSize;
 
     public TS_MathCurve(double[] input_values, double[] output_values) {
@@ -52,15 +52,15 @@ public class TS_MathCurve {
         if (forInputValue > getInputMax()) {
             var pack0 = table_of_idx_input_output.get(tableSize - 2);
             var pack1 = table_of_idx_input_output.get(tableSize - 1);
-            var fromMinMax = new TGS_Pack2(pack0.value1, pack1.value1);
-            var toMinMax = new TGS_Pack2(pack0.value2, pack1.value2);
+            var fromMinMax = new TGS_Tuple2(pack0.value1, pack1.value1);
+            var toMinMax = new TGS_Tuple2(pack0.value2, pack1.value2);
             return TGS_MathUtils.convertWeightedDbl(forInputValue, fromMinMax, toMinMax);
         }
         if (forInputValue < getInputMin()) {
             var pack0 = table_of_idx_input_output.get(0);
             var pack1 = table_of_idx_input_output.get(1);
-            var fromMinMax = new TGS_Pack2(pack0.value1, pack1.value1);
-            var toMinMax = new TGS_Pack2(pack0.value2, pack1.value2);
+            var fromMinMax = new TGS_Tuple2(pack0.value1, pack1.value1);
+            var toMinMax = new TGS_Tuple2(pack0.value2, pack1.value2);
             return TGS_MathUtils.convertWeightedDbl(forInputValue, fromMinMax, toMinMax);
         }
 
@@ -90,11 +90,11 @@ public class TS_MathCurve {
 
         return TGS_MathUtils.convertWeightedDbl(
                 forInputValue,
-                new TGS_Pack2(
+                new TGS_Tuple2(
                         table_of_idx_input_output.get(closestTableIdx).value1,
                         table_of_idx_input_output.get(closestTableIdx + 1).value1
                 ),
-                new TGS_Pack2(
+                new TGS_Tuple2(
                         table_of_idx_input_output.get(closestTableIdx).value2,
                         table_of_idx_input_output.get(closestTableIdx + 1).value2
                 )
@@ -117,10 +117,10 @@ public class TS_MathCurve {
 //        System.out.println("TABLE.OUTPUT:");
 //        table.stream().forEachOrdered(row -> System.out.println(row.value2));
 //
-//        List<TGS_Pack2<Double, Double>> closest_input_output = TGS_ListUtils.of();
+//        List<TGS_Tuple2<Double, Double>> closest_input_output = TGS_ListUtils.of();
 //        for (var i = -10; i <= 60; i++) {
 //            var closestOutput = approximator.getOutputByClosestAverage(i, true);
-//            TGS_Pack2<Double, Double> pack = new TGS_Pack2((double) i, closestOutput);
+//            TGS_Tuple2<Double, Double> pack = new TGS_Tuple2((double) i, closestOutput);
 //            closest_input_output.add(pack);
 //        }
 //        System.out.println("CLOSEST.INPUT:");

@@ -1,7 +1,7 @@
 package com.tugalsan.api.math.server;
 
 import com.tugalsan.api.list.client.*;
-import com.tugalsan.api.pack.client.*;
+import com.tugalsan.api.tuple.client.*;
 import java.util.*;
 import org.apache.commons.math3.analysis.interpolation.*;
 import org.apache.commons.math3.analysis.polynomials.*;
@@ -10,7 +10,7 @@ public class TS_MathCurveDriver {
 
     final public double[] input_values;
     final public double[] output_values;
-    final public List<TGS_Pack2<Double, Double>> calculated_results = TGS_ListUtils.of();
+    final public List<TGS_Tuple2<Double, Double>> calculated_results = TGS_ListUtils.of();
     final private double[] indexes;
     final public double indexMin;
     final public double indexMax;
@@ -30,15 +30,15 @@ public class TS_MathCurveDriver {
 //        IntStream.range(0, input_values.length).forEachOrdered(i -> System.out.println("output_values[" + i + "]: " + output_values[i]));
     }
 
-    public TGS_Pack3<Double, Double, Double> calc_return_idx_input_output(Double idx) {
+    public TGS_Tuple3<Double, Double, Double> calc_return_idx_input_output(Double idx) {
         if (idx == null || idx < indexMin || idx > indexMax) {
             return null;
         }
-        return new TGS_Pack3(idx, funcInput.value(idx), funcOutput.value(idx));
+        return new TGS_Tuple3(idx, funcInput.value(idx), funcOutput.value(idx));
     }
 
-    public List<TGS_Pack3<Double, Double, Double>> calc_return_table_of_idx_input_output(double indexStep) {
-        List<TGS_Pack3<Double, Double, Double>> table = TGS_ListUtils.of();
+    public List<TGS_Tuple3<Double, Double, Double>> calc_return_table_of_idx_input_output(double indexStep) {
+        List<TGS_Tuple3<Double, Double, Double>> table = TGS_ListUtils.of();
         for (var idx = indexMin; idx <= indexMax; idx += indexStep) {
             table.add(calc_return_idx_input_output(idx));
         }

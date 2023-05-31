@@ -3,7 +3,7 @@ package com.tugalsan.api.math.server;
 import com.tugalsan.api.list.client.*;
 import com.tugalsan.api.log.server.*;
 import com.tugalsan.api.math.client.*;
-import com.tugalsan.api.pack.client.*;
+import com.tugalsan.api.tuple.client.*;
 import com.tugalsan.api.string.client.*;
 import java.util.stream.*;
 
@@ -35,8 +35,8 @@ public class TS_MathApproximateUtils {
         TGS_ListSortUtils.sortPrimativeDouble2(known_input_values, known_output_values);
 
         if (known_input_values.length == 2) {
-            var fromMinMax = new TGS_Pack2(known_input_values[0], known_input_values[1]);
-            var toMinMax = new TGS_Pack2(known_output_values[0], known_output_values[1]);
+            var fromMinMax = new TGS_Tuple2(known_input_values[0], known_input_values[1]);
+            var toMinMax = new TGS_Tuple2(known_output_values[0], known_output_values[1]);
             IntStream.range(0, request_input_values.length).parallel().forEach(i -> {
                 requested_output_values[i] = TGS_MathUtils.convertWeightedDbl(request_input_values[i], fromMinMax, toMinMax);
             });
