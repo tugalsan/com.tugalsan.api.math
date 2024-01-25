@@ -41,8 +41,8 @@ public class TS_MathMatrixUtils {
     }
 
     public static void setMatrixAsEmpty(float[][] M) {
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
+        for (var i = 0; i < 4; i++) {
+            for (var j = 0; j < 4; j++) {
                 M[i][j] = 0;
             }
         }
@@ -74,9 +74,9 @@ public class TS_MathMatrixUtils {
 
     public static void multiplySimplfied(float[][] M1, float[][] M2, float[][] MO) {
         setMatrixAsEmpty(MO);
-        for (int k = 0; k < 4; k++) {
-            for (int j = 0; j < 4; j++) {
-                for (int i = 0; i < 4; i++) {
+        for (var k = 0; k < 4; k++) {
+            for (var j = 0; j < 4; j++) {
+                for (var i = 0; i < 4; i++) {
                     MO[k][j] += M1[k][i] * M2[i][j];
                 }
             }

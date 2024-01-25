@@ -9,7 +9,7 @@ public class TS_MathUtils {
 
     public static Double percentDbl(double numerator, double denominator, int precision) {
         var val = percentStr(numerator, denominator, precision);
-        return val == null ? null : Double.parseDouble(val);
+        return val == null ? null : Double.valueOf(val);
     }
 
     public static String percentStr(double numerator, double denominator, int precision) {
