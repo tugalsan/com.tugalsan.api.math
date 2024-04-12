@@ -1,8 +1,8 @@
 package com.tugalsan.api.math.client;
 
+import com.tugalsan.api.union.client.TGS_UnionExcuse;
 import java.util.*;
 import java.util.stream.*;
-import com.tugalsan.api.tuple.client.*;
 
 public class TGS_MathUtils {
 
@@ -109,93 +109,104 @@ public class TGS_MathUtils {
         return Arrays.stream(input).reduce(0, Integer::sum);
     }
 
-    public static TGS_Tuple2<Integer, Integer> findMax_returns_IdAndValue(int[] input) {
-        TGS_Tuple2<Integer, Integer> maxIdAndValue = new TGS_Tuple2(0, input[0]);
+    public static ArrayItem findMax(int[] input) {
+        var wrap = new Object() {
+            int idx = 0;
+            int value = input[0];
+        };
         IntStream.range(1, input.length).forEachOrdered(i -> {
-            if (maxIdAndValue.value1 < input[i]) {
-                maxIdAndValue.value0 = i;
-                maxIdAndValue.value1 = input[i];
+            if (wrap.value < input[i]) {
+                wrap.idx = i;
+                wrap.value = input[i];
             }
         });
-        return maxIdAndValue;
+        return new ArrayItem(wrap.idx, wrap.value);
     }
 
-    public static TGS_Tuple2<Integer, Integer> findMin_returns_IdAndValue(int[] input) {
-        TGS_Tuple2<Integer, Integer> minIdAndValue = new TGS_Tuple2(0, input[0]);
+    public record ArrayItem(int idx, int value) {
+
+    }
+
+    public static ArrayItem findMin(int[] input) {
+        var wrap = new Object() {
+            int idx = 0;
+            int value = input[0];
+        };
         IntStream.range(1, input.length).forEachOrdered(i -> {
-            if (minIdAndValue.value1 > input[i]) {
-                minIdAndValue.value0 = i;
-                minIdAndValue.value1 = input[i];
+            if (wrap.value > input[i]) {
+                wrap.idx = i;
+                wrap.value = input[i];
             }
         });
-        return minIdAndValue;
+        return new ArrayItem(wrap.idx, wrap.value);
     }
 
-    public static Integer convertWeightedInt(int input, TGS_Tuple2<Integer, Integer> fromMinMax, TGS_Tuple2<Integer, Integer> toMinMax) {
+    
+    public static TGS_UnionExcuse<Integer> convertWeightedInt(int input, TGS_MathRange<Integer> fromMinMax, TGS_MathRange<Integer> toMinMax) {
         if (toMinMax == null || fromMinMax == null) {
-            return null;
+            return TGS_UnionExcuse.ofExcuse(TGS_MathUtils.class.getSimpleName(), "convertWeightedInt", "toMinMax == null || fromMinMax == null");
         }
-        if (fromMinMax.value0 > fromMinMax.value1) {
-            var tmp = fromMinMax.value0;
-            fromMinMax.value0 = fromMinMax.value1;
-            fromMinMax.value1 = tmp;
+        if (fromMinMax.min > fromMinMax.max) {
+            var tmp = fromMinMax.min;
+            fromMinMax.min = fromMinMax.max;
+            fromMinMax.max = tmp;
         }
-        if (input < fromMinMax.value0 || input > fromMinMax.value1) {
-            return null;
+        if (input < fromMinMax.min || input > fromMinMax.max) {
+            return TGS_UnionExcuse.ofExcuse(TGS_MathUtils.class.getSimpleName(), "convertWeightedInt", "input < fromMinMax.min || input > fromMinMax.max");
         }
-        var fromRange = fromMinMax.value1 - fromMinMax.value0;
-        var fromLeftRange = input - fromMinMax.value0;
+        var fromRange = fromMinMax.max - fromMinMax.min;
+        var fromLeftRange = input - fromMinMax.min;
         var percent = fromLeftRange * 1f / fromRange;
 
-        if (toMinMax.value0 > toMinMax.value1) {
-            var tmp = toMinMax.value0;
-            toMinMax.value0 = toMinMax.value1;
-            toMinMax.value1 = tmp;
+        if (toMinMax.min > toMinMax.max) {
+            var tmp = toMinMax.min;
+            toMinMax.min = toMinMax.max;
+            toMinMax.max = tmp;
         }
-        var toRange = toMinMax.value1 - toMinMax.value0;
+        var toRange = toMinMax.max - toMinMax.min;
         var toLeftRange = percent * toRange;
-        var toValue = toMinMax.value0 + Math.round(toLeftRange);
-        return toValue > toMinMax.value1 ? toMinMax.value1 : toValue;
+        var toValue = toMinMax.min + Math.round(toLeftRange);
+        return TGS_UnionExcuse.of(toValue > toMinMax.max ? toMinMax.max : toValue);
     }
 
-    public static Double convertWeightedDbl(double input, TGS_Tuple2<Double, Double> fromMinMax, TGS_Tuple2<Double, Double> toMinMax) {
+    public static TGS_UnionExcuse<Double> convertWeightedDbl(double input, TGS_MathRange<Double> fromMinMax, TGS_MathRange<Double> toMinMax) {
         if (toMinMax == null || fromMinMax == null) {
-            return null;
+            return TGS_UnionExcuse.ofExcuse(TGS_MathUtils.class.getSimpleName(), "convertWeightedInt", "toMinMax == null || fromMinMax == null");
         }
-        if (fromMinMax.value0 > fromMinMax.value1) {
-            var tmp = fromMinMax.value0;
-            fromMinMax.value0 = fromMinMax.value1;
-            fromMinMax.value1 = tmp;
+        if (fromMinMax.min > fromMinMax.max) {
+            var tmp = fromMinMax.min;
+            fromMinMax.min = fromMinMax.max;
+            fromMinMax.max = tmp;
         }
-        if (input < fromMinMax.value0 || input > fromMinMax.value1) {
+        if (input < fromMinMax.min || input > fromMinMax.max) {
 //            System.out.println("convertWeightedDbl" + "RANGE OUT DETECTED");
 //            System.out.println("input:" + input);
 //            System.out.println("fromMinMax.value0:" + fromMinMax.value0);
 //            System.out.println("fromMinMax.value1:" + fromMinMax.value1);
-            var inputRange = fromMinMax.value1 - fromMinMax.value0;
-            var outputRange = toMinMax.value1 - toMinMax.value0;
+            var inputRange = fromMinMax.max - fromMinMax.min;
+            var outputRange = toMinMax.max - toMinMax.min;
             var outputIncrement = outputRange / inputRange;
-            if (input < fromMinMax.value0) {
-                var inputLess = fromMinMax.value0 - input;
-                return toMinMax.value0 - inputLess * outputIncrement;
+            if (input < fromMinMax.min) {
+                var inputLess = fromMinMax.min - input;
+                return TGS_UnionExcuse.of(toMinMax.min - inputLess * outputIncrement);
             } else {//input > fromMinMax.value1)
-                var inputMore = input - fromMinMax.value1;
-                return toMinMax.value1 + inputMore * outputIncrement;
+                var inputMore = input - fromMinMax.max;
+                return TGS_UnionExcuse.of(toMinMax.max + inputMore * outputIncrement);
             }
         }
-        var fromRange = fromMinMax.value1 - fromMinMax.value0;
-        var fromLeftRange = input - fromMinMax.value0;
+        var fromRange = fromMinMax.max - fromMinMax.min;
+        var fromLeftRange = input - fromMinMax.min;
         var percent = fromLeftRange * 1f / fromRange;
 
-        if (toMinMax.value0 > toMinMax.value1) {
-            var tmp = toMinMax.value0;
-            toMinMax.value0 = toMinMax.value1;
-            toMinMax.value1 = tmp;
+        if (toMinMax.min > toMinMax.max) {
+            var tmp = toMinMax.min;
+            toMinMax.min = toMinMax.max;
+            toMinMax.max = tmp;
         }
-        var toRange = toMinMax.value1 - toMinMax.value0;
+        var toRange = toMinMax.max - toMinMax.min;
         var toLeftRange = percent * toRange;
-        var toValue = toMinMax.value0 + toLeftRange;
-        return toValue > toMinMax.value1 ? toMinMax.value1 : toValue;
+        var toValue = toMinMax.min + toLeftRange;
+        return TGS_UnionExcuse.of(toValue > toMinMax.max ? toMinMax.max : toValue);
     }
 
     public static int[] convertWeighted(int[] input, int minWeighted, int preferedSumWeight) {
@@ -211,9 +222,9 @@ public class TGS_MathUtils {
             if (remainer == 0) {
                 break;
             } else if (remainer < 0) {
-                weighted[findMin_returns_IdAndValue(weighted).value0]++;
+                weighted[findMin(weighted).idx]++;
             } else {
-                weighted[findMax_returns_IdAndValue(weighted).value0]--;
+                weighted[findMax(weighted).idx]--;
             }
         }
         return weighted;

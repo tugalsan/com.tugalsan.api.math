@@ -1,7 +1,7 @@
 package com.tugalsan.api.math.server;
 
 import com.tugalsan.api.list.client.*;
-import com.tugalsan.api.tuple.client.*;
+import com.tugalsan.api.union.client.TGS_UnionExcuse;
 import java.util.*;
 import org.apache.commons.math3.analysis.interpolation.*;
 import org.apache.commons.math3.analysis.polynomials.*;
@@ -10,7 +10,7 @@ public class TS_MathCurveDriver {
 
     final public double[] input_values;
     final public double[] output_values;
-    final public List<TGS_Tuple2<Double, Double>> calculated_results = TGS_ListUtils.of();
+    final public List<TS_MathResult2<Double>> calculated_results = TGS_ListUtils.of();
     final private double[] indexes;
     final public double indexMin;
     final public double indexMax;
@@ -30,21 +30,30 @@ public class TS_MathCurveDriver {
 //        IntStream.range(0, input_values.length).forEachOrdered(i -> System.out.println("output_values[" + i + "]: " + output_values[i]));
     }
 
-    public TGS_Tuple3<Double, Double, Double> calc_return_idx_input_output(Double idx) {
+    public TGS_UnionExcuse<TS_MathResult3<Double>> calc_return_idx_input_output(Double idx) {
         if (idx == null || idx < indexMin || idx > indexMax) {
-            return null;
+            return TGS_UnionExcuse.ofExcuse(TS_MathCurveDriver.class.getSimpleName(), "calc_return_idx_input_output", "idx == null || idx < indexMin || idx > indexMax");
         }
-        return new TGS_Tuple3(idx, funcInput.value(idx), funcOutput.value(idx));
+        return TGS_UnionExcuse.of(new TS_MathResult3(idx, funcInput.value(idx), funcOutput.value(idx)));
     }
 
-    public List<TGS_Tuple3<Double, Double, Double>> calc_return_table_of_idx_input_output(double indexStep) {
-        List<TGS_Tuple3<Double, Double, Double>> table = TGS_ListUtils.of();
+    public TGS_UnionExcuse<List<TS_MathResult3<Double>>> calc_return_table_of_idx_input_output(double indexStep) {
+        List<TS_MathResult3<Double>> table = TGS_ListUtils.of();
         for (var idx = indexMin; idx <= indexMax; idx += indexStep) {
-            table.add(calc_return_idx_input_output(idx));
+            var u = calc_return_idx_input_output(idx);
+            if (u.isExcuse()) {
+                return u.toExcuse();
+            }
+            table.add(u.value());
         }
-        if (table.get(table.size() - 1).value0 != indexMax) {//JAVA DOUBLE FIX
-            table.add(calc_return_idx_input_output(indexMax));
+        if (table.get(table.size() - 1).idx() != indexMax) {//JAVA DOUBLE FIX
+            var u = calc_return_idx_input_output(indexMax);
+            if (u.isExcuse()) {
+                return u.toExcuse();
+            }
+            table.add(u.value());
         }
-        return table;
+        return TGS_UnionExcuse.of(table);
     }
+
 }

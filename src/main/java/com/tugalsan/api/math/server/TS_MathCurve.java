@@ -1,7 +1,8 @@
 package com.tugalsan.api.math.server;
 
+import com.tugalsan.api.list.client.TGS_ListUtils;
 import com.tugalsan.api.math.client.*;
-import com.tugalsan.api.tuple.client.*;
+import com.tugalsan.api.union.client.TGS_UnionExcuse;
 import java.util.*;
 
 public class TS_MathCurve {
@@ -11,7 +12,7 @@ public class TS_MathCurve {
     }
 
     final public TS_MathCurveDriver curve;
-    final public List<TGS_Tuple3<Double, Double, Double>> table_of_idx_input_output;
+    final public List<TS_MathResult3<Double>> table_of_idx_input_output;
     final public int tableSize;
 
     public TS_MathCurve(double[] input_values, double[] output_values) {
@@ -20,63 +21,66 @@ public class TS_MathCurve {
 
     public TS_MathCurve(double[] input_values, double[] output_values, double indexSteps) {
         curve = new TS_MathCurveDriver(input_values, output_values);
-        table_of_idx_input_output = curve.calc_return_table_of_idx_input_output(indexSteps);
+        table_of_idx_input_output = curve.calc_return_table_of_idx_input_output(indexSteps).orElse(excuse -> {
+            excuse.printStackTrace();
+            return TGS_ListUtils.of();
+        });
         tableSize = table_of_idx_input_output.size();
     }
 
     public double getIndexMin() {
-        return table_of_idx_input_output.get(0).value0;
+        return table_of_idx_input_output.get(0).idx();
     }
 
     public double getIndexMax() {
-        return table_of_idx_input_output.get(tableSize - 1).value0;
+        return table_of_idx_input_output.get(tableSize - 1).idx();
     }
 
     public double getInputMin() {
-        return table_of_idx_input_output.get(0).value1;
+        return table_of_idx_input_output.get(0).input();
     }
 
     public double getInputMax() {
-        return table_of_idx_input_output.get(tableSize - 1).value1;
+        return table_of_idx_input_output.get(tableSize - 1).input();
     }
 
     public double getOutputForInputMin() {
-        return table_of_idx_input_output.get(0).value2;
+        return table_of_idx_input_output.get(0).output();
     }
 
     public double getOutputForInputMax() {
-        return table_of_idx_input_output.get(tableSize - 1).value2;
+        return table_of_idx_input_output.get(tableSize - 1).output();
     }
 
-    public Double getOutputByClosestAverage(double forInputValue) {
+    public TGS_UnionExcuse<Double> getOutputByClosestAverage(double forInputValue) {
         if (forInputValue > getInputMax()) {
             var pack0 = table_of_idx_input_output.get(tableSize - 2);
             var pack1 = table_of_idx_input_output.get(tableSize - 1);
-            var fromMinMax = new TGS_Tuple2(pack0.value1, pack1.value1);
-            var toMinMax = new TGS_Tuple2(pack0.value2, pack1.value2);
+            var fromMinMax = new TGS_MathRange(pack0.input(), pack1.input());
+            var toMinMax = new TGS_MathRange(pack0.output(), pack1.output());
             return TGS_MathUtils.convertWeightedDbl(forInputValue, fromMinMax, toMinMax);
         }
         if (forInputValue < getInputMin()) {
             var pack0 = table_of_idx_input_output.get(0);
             var pack1 = table_of_idx_input_output.get(1);
-            var fromMinMax = new TGS_Tuple2(pack0.value1, pack1.value1);
-            var toMinMax = new TGS_Tuple2(pack0.value2, pack1.value2);
+            var fromMinMax = new TGS_MathRange(pack0.input(), pack1.input());
+            var toMinMax = new TGS_MathRange(pack0.output(), pack1.output());
             return TGS_MathUtils.convertWeightedDbl(forInputValue, fromMinMax, toMinMax);
         }
 
-        if (table_of_idx_input_output.get(0).value1 == forInputValue) {
-            return table_of_idx_input_output.get(0).value2;
+        if (table_of_idx_input_output.get(0).input() == forInputValue) {
+            return TGS_UnionExcuse.of(table_of_idx_input_output.get(0).output());
         }
-        if (table_of_idx_input_output.get(tableSize - 1).value1 == forInputValue) {
-            return table_of_idx_input_output.get(tableSize - 1).value2;
+        if (table_of_idx_input_output.get(tableSize - 1).input() == forInputValue) {
+            return TGS_UnionExcuse.of(table_of_idx_input_output.get(tableSize - 1).output());
         }
 
         var closestTableIdx = 0;
         for (var tableIdx = 1; tableIdx < tableSize; tableIdx++) {
             var tableRow = table_of_idx_input_output.get(tableIdx);
-            var distance = tableRow.value1 - forInputValue;
+            var distance = tableRow.input() - forInputValue;
             if (distance == 0) {
-                return tableRow.value2;
+                return TGS_UnionExcuse.of(tableRow.output());
             }
             if (distance > 0) {
                 break;
@@ -85,18 +89,18 @@ public class TS_MathCurve {
         }
 
         if (closestTableIdx == tableSize - 1) {
-            return table_of_idx_input_output.get(tableSize - 1).value2;
+            return TGS_UnionExcuse.of(table_of_idx_input_output.get(tableSize - 1).output());
         }
 
         return TGS_MathUtils.convertWeightedDbl(
                 forInputValue,
-                new TGS_Tuple2(
-                        table_of_idx_input_output.get(closestTableIdx).value1,
-                        table_of_idx_input_output.get(closestTableIdx + 1).value1
+                new TGS_MathRange(
+                        table_of_idx_input_output.get(closestTableIdx).input(),
+                        table_of_idx_input_output.get(closestTableIdx + 1).input()
                 ),
-                new TGS_Tuple2(
-                        table_of_idx_input_output.get(closestTableIdx).value2,
-                        table_of_idx_input_output.get(closestTableIdx + 1).value2
+                new TGS_MathRange(
+                        table_of_idx_input_output.get(closestTableIdx).output(),
+                        table_of_idx_input_output.get(closestTableIdx + 1).output()
                 )
         );
     }
