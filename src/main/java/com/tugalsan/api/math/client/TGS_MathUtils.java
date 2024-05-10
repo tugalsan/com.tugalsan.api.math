@@ -6,6 +6,23 @@ import com.tugalsan.api.tuple.client.*;
 
 public class TGS_MathUtils {
 
+    public static double median_and_sort(int[] numArray) {
+        Arrays.sort(numArray);
+        if (numArray.length % 2 == 0) {
+            return ((double) numArray[numArray.length / 2] + (double) numArray[numArray.length / 2 - 1]) / 2;
+        } else {
+            return (double) numArray[numArray.length / 2];
+        }
+    }
+
+    public static boolean isEven(int num) {
+        return num % 2 == 0;
+    }
+
+    public static boolean isOdd(int num) {
+        return !isEven(num);
+    }
+
     public static double percentageValueDbl(double divident, double divisor) {
         return 100 * divident / divisor;
     }
