@@ -6,28 +6,37 @@ import com.tugalsan.api.tuple.client.*;
 
 public class TGS_MathUtils {
 
-    public static Optional<Double> median_and_sort(int[] numArray) {
-        if (numArray == null || numArray.length == 0) {
-            return Optional.empty();
-        }
-        Arrays.sort(numArray);
-        if (numArray.length % 2 == 0) {
-            return Optional.of(((double) numArray[numArray.length / 2] + (double) numArray[numArray.length / 2 - 1]) / 2);
-        } else {
-            return Optional.of((double) numArray[numArray.length / 2]);
-        }
+    public static OptionalDouble median_forLong(List<Long> list) {
+        var sorted = list.stream().mapToDouble(v -> v).sorted();
+        return (list.size() % 2 == 0
+                ? sorted.skip((list.size() / 2) - 1).limit(2).average()
+                : sorted.skip(list.size() / 2).findFirst());
     }
 
-    public static Optional<Double> median_and_sort(long[] numArray) {
-        if (numArray == null || numArray.length == 0) {
-            return Optional.empty();
-        }
-        Arrays.sort(numArray);
-        if (numArray.length % 2 == 0) {
-            return Optional.of(((double) numArray[numArray.length / 2] + (double) numArray[numArray.length / 2 - 1]) / 2);
-        } else {
-            return Optional.of((double) numArray[numArray.length / 2]);
-        }
+    public static OptionalDouble median_forDouble(List<Double> list) {
+        var sorted = list.stream().mapToDouble(v -> v).sorted();
+        return (list.size() % 2 == 0
+                ? sorted.skip((list.size() / 2) - 1).limit(2).average()
+                : sorted.skip(list.size() / 2).findFirst());
+    }
+
+    public static OptionalDouble median_forInteger(List<Integer> list) {
+        var sorted = list.stream().mapToDouble(v -> v).sorted();
+        return (list.size() % 2 == 0
+                ? sorted.skip((list.size() / 2) - 1).limit(2).average()
+                : sorted.skip(list.size() / 2).findFirst());
+    }
+
+    public static OptionalDouble median_and_sort(double[] numArray) {
+        return median_forDouble(DoubleStream.of(numArray).boxed().toList());
+    }
+
+    public static OptionalDouble median_and_sort(int[] numArray) {
+        return median_forInteger(IntStream.of(numArray).boxed().toList());
+    }
+
+    public static OptionalDouble median_and_sort(long[] numArray) {
+        return median_forLong(LongStream.of(numArray).boxed().toList());
     }
 
     public static boolean isEven(int num) {
