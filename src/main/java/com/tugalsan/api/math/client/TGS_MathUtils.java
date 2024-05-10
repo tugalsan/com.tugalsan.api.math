@@ -18,6 +18,18 @@ public class TGS_MathUtils {
         }
     }
 
+    public static Optional<Double> median_and_sort(long[] numArray) {
+        if (numArray == null || numArray.length == 0) {
+            return Optional.empty();
+        }
+        Arrays.sort(numArray);
+        if (numArray.length % 2 == 0) {
+            return Optional.of(((double) numArray[numArray.length / 2] + (double) numArray[numArray.length / 2 - 1]) / 2);
+        } else {
+            return Optional.of((double) numArray[numArray.length / 2]);
+        }
+    }
+
     public static boolean isEven(int num) {
         return num % 2 == 0;
     }
