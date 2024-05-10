@@ -7,6 +7,9 @@ import com.tugalsan.api.tuple.client.*;
 public class TGS_MathUtils {
 
     public static OptionalDouble median_forLong(List<Long> list) {
+        if (list == null || list.isEmpty()) {
+            return OptionalDouble.empty();
+        }
         var sorted = list.stream().mapToDouble(v -> v).sorted();
         return (list.size() % 2 == 0
                 ? sorted.skip((list.size() / 2) - 1).limit(2).average()
@@ -14,6 +17,9 @@ public class TGS_MathUtils {
     }
 
     public static OptionalDouble median_forDouble(List<Double> list) {
+        if (list == null || list.isEmpty()) {
+            return OptionalDouble.empty();
+        }
         var sorted = list.stream().mapToDouble(v -> v).sorted();
         return (list.size() % 2 == 0
                 ? sorted.skip((list.size() / 2) - 1).limit(2).average()
@@ -21,6 +27,9 @@ public class TGS_MathUtils {
     }
 
     public static OptionalDouble median_forInteger(List<Integer> list) {
+        if (list == null || list.isEmpty()) {
+            return OptionalDouble.empty();
+        }
         var sorted = list.stream().mapToDouble(v -> v).sorted();
         return (list.size() % 2 == 0
                 ? sorted.skip((list.size() / 2) - 1).limit(2).average()
