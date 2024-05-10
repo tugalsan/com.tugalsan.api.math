@@ -6,12 +6,15 @@ import com.tugalsan.api.tuple.client.*;
 
 public class TGS_MathUtils {
 
-    public static double median_and_sort(int[] numArray) {
+    public static Optional<Double> median_and_sort(int[] numArray) {
+        if (numArray == null || numArray.length == 0) {
+            return Optional.empty();
+        }
         Arrays.sort(numArray);
         if (numArray.length % 2 == 0) {
-            return ((double) numArray[numArray.length / 2] + (double) numArray[numArray.length / 2 - 1]) / 2;
+            return Optional.of(((double) numArray[numArray.length / 2] + (double) numArray[numArray.length / 2 - 1]) / 2);
         } else {
-            return (double) numArray[numArray.length / 2];
+            return Optional.of((double) numArray[numArray.length / 2]);
         }
     }
 
