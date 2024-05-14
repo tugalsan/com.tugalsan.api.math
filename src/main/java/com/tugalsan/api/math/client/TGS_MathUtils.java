@@ -1,5 +1,6 @@
 package com.tugalsan.api.math.client;
 
+import com.tugalsan.api.stream.client.TGS_StreamUtils;
 import java.util.*;
 import java.util.stream.*;
 import com.tugalsan.api.tuple.client.*;
@@ -49,27 +50,27 @@ public class TGS_MathUtils {
     }
 
     public static OptionalDouble median_and_sort(double[] numArray) {
-        return median_forDouble(DoubleStream.of(numArray).boxed().toList());
+        return median_forDouble(TGS_StreamUtils.toLst(DoubleStream.of(numArray).boxed()));
     }
 
     public static OptionalDouble average(double[] numArray) {
-        return average_forDouble(DoubleStream.of(numArray).boxed().toList());
+        return average_forDouble(TGS_StreamUtils.toLst(DoubleStream.of(numArray).boxed()));
     }
 
     public static OptionalDouble median_and_sort(int[] numArray) {
-        return median_forInteger(IntStream.of(numArray).boxed().toList());
+        return median_forInteger(TGS_StreamUtils.toLst(IntStream.of(numArray).boxed()));
     }
 
     public static OptionalDouble average(int[] numArray) {
-        return average_forInteger(IntStream.of(numArray).boxed().toList());
+        return average_forInteger(TGS_StreamUtils.toLst(IntStream.of(numArray).boxed()));
     }
 
     public static OptionalDouble median_and_sort(long[] numArray) {
-        return median_forLong(LongStream.of(numArray).boxed().toList());
+        return median_forLong(TGS_StreamUtils.toLst(LongStream.of(numArray).boxed()));
     }
 
     public static OptionalDouble average(long[] numArray) {
-        return average_forLong(LongStream.of(numArray).boxed().toList());
+        return average_forLong(TGS_StreamUtils.toLst(LongStream.of(numArray).boxed()));
     }
 
     public static boolean isEven(int num) {
