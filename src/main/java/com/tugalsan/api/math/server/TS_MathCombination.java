@@ -8,7 +8,7 @@ public class TS_MathCombination {
 
     public static <T> List<List<T>> combinations(List<T> arr) {
         return Generator.combination(arr)
-                .simple(3)
+                .simple(arr.size() - 1)
                 .stream()
                 .collect(Collectors.toList());
     }
