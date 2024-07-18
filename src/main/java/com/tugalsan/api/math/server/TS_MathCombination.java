@@ -7,8 +7,12 @@ import org.paukov.combinatorics3.Generator;
 public class TS_MathCombination {
 
     public static <T> List<List<T>> combinations(List<T> arr) {
+        return combinations(arr, arr.size());
+    }
+
+    public static <T> List<List<T>> combinations(List<T> arr, int innerItemCount) {
         return Generator.combination(arr)
-                .simple(arr.size() - 1)
+                .simple(innerItemCount)
                 .stream()
                 .collect(Collectors.toList());
     }
