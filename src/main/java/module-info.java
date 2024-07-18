@@ -1,4 +1,5 @@
 module com.tugalsan.api.math {
+    requires combinatoricslib3;
     requires commons.math3;
     requires com.tugalsan.api.tuple;
     requires com.tugalsan.api.list;
