@@ -70,11 +70,10 @@
                 <version>3.13.0</version>
                 <configuration>
                     <release>23</release>
-                    <!--<enablePreview>true</enablePreview>-->
+                    <enablePreview>true</enablePreview>
                     <compilerArgs>
                         <arg>--add-modules</arg>
                         <arg>jdk.incubator.vector</arg>
-                        <!-- <arg>-XX:+EnableDynamicAgentLoading -->
                     </compilerArgs> 
                 </configuration>
             </plugin>

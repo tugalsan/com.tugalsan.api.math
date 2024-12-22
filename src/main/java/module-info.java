@@ -3,6 +3,7 @@ module com.tugalsan.api.math {
     requires combinatoricslib3;
     requires commons.math3;
     requires com.tugalsan.api.tuple;
+    requires com.tugalsan.api.function;
     requires com.tugalsan.api.list;
     requires com.tugalsan.api.log;
     requires com.tugalsan.api.string;
