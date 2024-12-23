@@ -9,7 +9,7 @@ import jdk.incubator.vector.LongVector;
 import jdk.incubator.vector.ShortVector;
 import jdk.incubator.vector.VectorSpecies;
 
-public class TS_MathArrayVectorFuncUtils {
+public class TS_MathArrayVectorFunc_OutTyped_In2Utils {
 
     public static void bytes(TS_MathArrayVectorTypes vectorType,
             byte[] output, byte[] inputA, byte[] inputB,

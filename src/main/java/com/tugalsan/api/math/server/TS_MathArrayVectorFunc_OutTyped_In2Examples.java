@@ -8,7 +8,7 @@ import jdk.incubator.vector.IntVector;
 import jdk.incubator.vector.LongVector;
 import jdk.incubator.vector.ShortVector;
 
-public class TS_MathArrayVectorFuncExamples {
+public class TS_MathArrayVectorFunc_OutTyped_In2Examples {
 
     public static class FuncByte {
 //    public static TGS_Func_OutTyped_In2<ByteVector, ByteVector, ByteVector> func_pow() {

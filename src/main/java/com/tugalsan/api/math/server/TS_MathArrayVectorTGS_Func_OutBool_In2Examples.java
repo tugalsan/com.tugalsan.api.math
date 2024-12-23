@@ -9,7 +9,7 @@ import jdk.incubator.vector.LongVector;
 import jdk.incubator.vector.ShortVector;
 import jdk.incubator.vector.VectorMask;
 
-public class TS_MathArrayVectorBooleanExamples {
+public class TS_MathArrayVectorTGS_Func_OutBool_In2Examples {
 
     public static class FuncByte {
 

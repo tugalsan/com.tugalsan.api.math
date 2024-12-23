@@ -1,5 +1,6 @@
 package com.tugalsan.api.math.server;
 
+import com.tugalsan.api.function.client.TGS_Func_OutBool_In2;
 import com.tugalsan.api.function.client.TGS_Func_OutTyped_In2;
 import jdk.incubator.vector.ByteVector;
 import jdk.incubator.vector.DoubleVector;
@@ -10,12 +11,12 @@ import jdk.incubator.vector.ShortVector;
 import jdk.incubator.vector.VectorMask;
 import jdk.incubator.vector.VectorSpecies;
 
-public class TS_MathArrayVectorBooleanUtils {
+public class TS_MathArrayVectorTGS_Func_OutBool_In2Utils {
 
     public static void bytes(TS_MathArrayVectorTypes vectorType,
             boolean[] output, byte[] inputA, byte[] inputB,
             TGS_Func_OutTyped_In2<VectorMask<Byte>, ByteVector, ByteVector> exeVector,
-            TGS_Func_OutTyped_In2<Boolean, Byte, Byte> exeScalar) {
+            TGS_Func_OutBool_In2<Byte, Byte> exeScalar) {
         switch (vectorType) {
             case TS_MathArrayVectorTypes._0064, TS_MathArrayVectorTypes._0128, TS_MathArrayVectorTypes._0256, TS_MathArrayVectorTypes._0512, TS_MathArrayVectorTypes._MAX, TS_MathArrayVectorTypes._PREFERRED ->
                 bytes(false, TS_MathArrayVectorTypesUtils.bytes(vectorType), output, inputA, inputB, exeVector, exeScalar);
@@ -27,7 +28,7 @@ public class TS_MathArrayVectorBooleanUtils {
     public static void bytes(boolean useMask, VectorSpecies<Byte> species,
             boolean[] output, byte[] inputA, byte[] inputB,
             TGS_Func_OutTyped_In2<VectorMask<Byte>, ByteVector, ByteVector> exeVector,
-            TGS_Func_OutTyped_In2<Boolean, Byte, Byte> exeScalar) {
+            TGS_Func_OutBool_In2<Byte, Byte> exeScalar) {
         var i = 0;
         if (useMask) {
             var result = new boolean[inputA.length + species.length()];
@@ -56,7 +57,7 @@ public class TS_MathArrayVectorBooleanUtils {
     public static void shorts(TS_MathArrayVectorTypes vectorType,
             boolean[] output, short[] inputA, short[] inputB,
             TGS_Func_OutTyped_In2<VectorMask<Short>, ShortVector, ShortVector> exeVector,
-            TGS_Func_OutTyped_In2<Boolean, Short, Short> exeScalar) {
+            TGS_Func_OutBool_In2<Short, Short> exeScalar) {
         switch (vectorType) {
             case TS_MathArrayVectorTypes._0064, TS_MathArrayVectorTypes._0128, TS_MathArrayVectorTypes._0256, TS_MathArrayVectorTypes._0512, TS_MathArrayVectorTypes._MAX, TS_MathArrayVectorTypes._PREFERRED ->
                 shorts(false, TS_MathArrayVectorTypesUtils.shorts(vectorType), output, inputA, inputB, exeVector, exeScalar);
@@ -68,7 +69,7 @@ public class TS_MathArrayVectorBooleanUtils {
     public static void shorts(boolean useMask, VectorSpecies<Short> species,
             boolean[] output, short[] inputA, short[] inputB,
             TGS_Func_OutTyped_In2<VectorMask<Short>, ShortVector, ShortVector> exeVector,
-            TGS_Func_OutTyped_In2<Boolean, Short, Short> exeScalar) {
+            TGS_Func_OutBool_In2<Short, Short> exeScalar) {
         var i = 0;
         if (useMask) {
             var result = new boolean[inputA.length + species.length()];
@@ -97,7 +98,7 @@ public class TS_MathArrayVectorBooleanUtils {
     public static void integers(TS_MathArrayVectorTypes vectorType,
             boolean[] output, int[] inputA, int[] inputB,
             TGS_Func_OutTyped_In2<VectorMask<Integer>, IntVector, IntVector> exeVector,
-            TGS_Func_OutTyped_In2<Boolean, Integer, Integer> exeScalar) {
+            TGS_Func_OutBool_In2<Integer, Integer> exeScalar) {
         switch (vectorType) {
             case TS_MathArrayVectorTypes._0064, TS_MathArrayVectorTypes._0128, TS_MathArrayVectorTypes._0256, TS_MathArrayVectorTypes._0512, TS_MathArrayVectorTypes._MAX, TS_MathArrayVectorTypes._PREFERRED ->
                 integers(false, TS_MathArrayVectorTypesUtils.integers(vectorType), output, inputA, inputB, exeVector, exeScalar);
@@ -109,7 +110,7 @@ public class TS_MathArrayVectorBooleanUtils {
     public static void integers(boolean useMask, VectorSpecies<Integer> species,
             boolean[] output, int[] inputA, int[] inputB,
             TGS_Func_OutTyped_In2<VectorMask<Integer>, IntVector, IntVector> exeVector,
-            TGS_Func_OutTyped_In2<Boolean, Integer, Integer> exeScalar) {
+            TGS_Func_OutBool_In2<Integer, Integer> exeScalar) {
         var i = 0;
         if (useMask) {
             var result = new boolean[inputA.length + species.length()];
@@ -138,7 +139,7 @@ public class TS_MathArrayVectorBooleanUtils {
     public static void longs(TS_MathArrayVectorTypes vectorType,
             boolean[] output, long[] inputA, long[] inputB,
             TGS_Func_OutTyped_In2<VectorMask<Long>, LongVector, LongVector> exeVector,
-            TGS_Func_OutTyped_In2<Boolean, Long, Long> exeScalar) {
+            TGS_Func_OutBool_In2<Long, Long> exeScalar) {
         switch (vectorType) {
             case TS_MathArrayVectorTypes._0064, TS_MathArrayVectorTypes._0128, TS_MathArrayVectorTypes._0256, TS_MathArrayVectorTypes._0512, TS_MathArrayVectorTypes._MAX, TS_MathArrayVectorTypes._PREFERRED ->
                 longs(false, TS_MathArrayVectorTypesUtils.longs(vectorType), output, inputA, inputB, exeVector, exeScalar);
@@ -150,7 +151,7 @@ public class TS_MathArrayVectorBooleanUtils {
     public static void longs(boolean useMask, VectorSpecies<Long> species,
             boolean[] output, long[] inputA, long[] inputB,
             TGS_Func_OutTyped_In2<VectorMask<Long>, LongVector, LongVector> exeVector,
-            TGS_Func_OutTyped_In2<Boolean, Long, Long> exeScalar) {
+            TGS_Func_OutBool_In2<Long, Long> exeScalar) {
         var i = 0;
         if (useMask) {
             var result = new boolean[inputA.length + species.length()];
@@ -179,7 +180,7 @@ public class TS_MathArrayVectorBooleanUtils {
     public static void floats(TS_MathArrayVectorTypes vectorType,
             boolean[] output, float[] inputA, float[] inputB,
             TGS_Func_OutTyped_In2<VectorMask<Float>, FloatVector, FloatVector> exeVector,
-            TGS_Func_OutTyped_In2<Boolean, Float, Float> exeScalar) {
+            TGS_Func_OutBool_In2<Float, Float> exeScalar) {
         switch (vectorType) {
             case TS_MathArrayVectorTypes._0064, TS_MathArrayVectorTypes._0128, TS_MathArrayVectorTypes._0256, TS_MathArrayVectorTypes._0512, TS_MathArrayVectorTypes._MAX, TS_MathArrayVectorTypes._PREFERRED ->
                 floats(false, TS_MathArrayVectorTypesUtils.floats(vectorType), output, inputA, inputB, exeVector, exeScalar);
@@ -191,7 +192,7 @@ public class TS_MathArrayVectorBooleanUtils {
     public static void floats(boolean useMask, VectorSpecies<Float> species,
             boolean[] output, float[] inputA, float[] inputB,
             TGS_Func_OutTyped_In2<VectorMask<Float>, FloatVector, FloatVector> exeVector,
-            TGS_Func_OutTyped_In2<Boolean, Float, Float> exeScalar) {
+            TGS_Func_OutBool_In2<Float, Float> exeScalar) {
         var i = 0;
         if (useMask) {
             var result = new boolean[inputA.length + species.length()];
@@ -220,7 +221,7 @@ public class TS_MathArrayVectorBooleanUtils {
     public static void doubles(TS_MathArrayVectorTypes vectorType,
             boolean[] output, double[] inputA, double[] inputB,
             TGS_Func_OutTyped_In2<VectorMask<Double>, DoubleVector, DoubleVector> exeVector,
-            TGS_Func_OutTyped_In2<Boolean, Double, Double> exeScalar) {
+            TGS_Func_OutBool_In2<Double, Double> exeScalar) {
         switch (vectorType) {
             case TS_MathArrayVectorTypes._0064, TS_MathArrayVectorTypes._0128, TS_MathArrayVectorTypes._0256, TS_MathArrayVectorTypes._0512, TS_MathArrayVectorTypes._MAX, TS_MathArrayVectorTypes._PREFERRED ->
                 doubles(false, TS_MathArrayVectorTypesUtils.doubles(vectorType), output, inputA, inputB, exeVector, exeScalar);
@@ -232,7 +233,7 @@ public class TS_MathArrayVectorBooleanUtils {
     public static void doubles(boolean useMask, VectorSpecies<Double> species,
             boolean[] output, double[] inputA, double[] inputB,
             TGS_Func_OutTyped_In2<VectorMask<Double>, DoubleVector, DoubleVector> exeVector,
-            TGS_Func_OutTyped_In2<Boolean, Double, Double> exeScalar) {
+            TGS_Func_OutBool_In2<Double, Double> exeScalar) {
         var i = 0;
         if (useMask) {
             var result = new boolean[inputA.length + species.length()];

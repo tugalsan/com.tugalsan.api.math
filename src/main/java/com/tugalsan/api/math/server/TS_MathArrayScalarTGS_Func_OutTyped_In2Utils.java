@@ -3,7 +3,7 @@ package com.tugalsan.api.math.server;
 import com.tugalsan.api.function.client.TGS_Func_OutTyped_In2;
 import java.util.stream.IntStream;
 
-public class TS_MathArrayScalarFuncUtils {
+public class TS_MathArrayScalarTGS_Func_OutTyped_In2Utils {
 
     public static void bytes(boolean parallel,
             byte[] output, byte[] inputA, byte[] inputB,

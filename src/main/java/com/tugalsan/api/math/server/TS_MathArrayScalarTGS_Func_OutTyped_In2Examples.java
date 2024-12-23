@@ -2,7 +2,7 @@ package com.tugalsan.api.math.server;
 
 import com.tugalsan.api.function.client.TGS_Func_OutTyped_In2;
 
-public class TS_MathArrayScalarFuncExamples {
+public class TS_MathArrayScalarTGS_Func_OutTyped_In2Examples {
 
     public static class FuncByte {
 //    public static TGS_Func_OutTyped_In2<Byte, Byte, Byte> func_pow() {
