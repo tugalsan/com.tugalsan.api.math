@@ -1,6 +1,6 @@
 package com.tugalsan.api.math.server;
 
-import com.tugalsan.api.function.client.TGS_Func_OutTyped_In2;
+import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE_OutTyped_In2;
 import jdk.incubator.vector.ByteVector;
 import jdk.incubator.vector.DoubleVector;
 import jdk.incubator.vector.FloatVector;
@@ -11,182 +11,182 @@ import jdk.incubator.vector.ShortVector;
 public class TS_MathArrayVectorFunc_OutTyped_In2Examples {
 
     public static class FuncByte {
-//    public static TGS_Func_OutTyped_In2<ByteVector, ByteVector, ByteVector> func_pow() {
+//    public static TGS_FuncMTUCE_OutTyped_In2<ByteVector, ByteVector, ByteVector> func_pow() {
 //        return (va, vb) -> va.pow(vb);
 //    }
 
-        public static TGS_Func_OutTyped_In2<ByteVector, ByteVector, ByteVector> func_div() {
+        public static TGS_FuncMTUCE_OutTyped_In2<ByteVector, ByteVector, ByteVector> func_div() {
             return (va, vb) -> va.div(vb);
         }
 
-        public static TGS_Func_OutTyped_In2<ByteVector, ByteVector, ByteVector> func_mul() {
+        public static TGS_FuncMTUCE_OutTyped_In2<ByteVector, ByteVector, ByteVector> func_mul() {
             return (va, vb) -> va.mul(vb);
         }
 
-        public static TGS_Func_OutTyped_In2<ByteVector, ByteVector, ByteVector> func_sub() {
+        public static TGS_FuncMTUCE_OutTyped_In2<ByteVector, ByteVector, ByteVector> func_sub() {
             return (va, vb) -> va.sub(vb);
         }
 
-        public static TGS_Func_OutTyped_In2<ByteVector, ByteVector, ByteVector> func_add() {
+        public static TGS_FuncMTUCE_OutTyped_In2<ByteVector, ByteVector, ByteVector> func_add() {
             return (va, vb) -> va.add(vb);
         }
 
-//    public static TGS_Func_OutTyped_In2<ByteVector, ByteVector, ByteVector> func_normal() {
+//    public static TGS_FuncMTUCE_OutTyped_In2<ByteVector, ByteVector, ByteVector> func_normal() {
 //        return (va, vb) -> va.mul(va).add(vb.mul(vb)).sqrt();
 //    }
-        public static TGS_Func_OutTyped_In2<ByteVector, ByteVector, ByteVector> func_unknown() {
+        public static TGS_FuncMTUCE_OutTyped_In2<ByteVector, ByteVector, ByteVector> func_unknown() {
             return (va, vb) -> va.mul(va).add(vb.mul(vb)).neg();
         }
 
     }
 
     public static class FuncShort {
-//    public static TGS_Func_OutTyped_In2<ShortVector, ShortVector, ShortVector> func_pow() {
+//    public static TGS_FuncMTUCE_OutTyped_In2<ShortVector, ShortVector, ShortVector> func_pow() {
 //        return (va, vb) -> va.pow(vb);
 //    }
 //
 
-        public static TGS_Func_OutTyped_In2<ShortVector, ShortVector, ShortVector> func_div() {
+        public static TGS_FuncMTUCE_OutTyped_In2<ShortVector, ShortVector, ShortVector> func_div() {
             return (va, vb) -> va.div(vb);
         }
 
-        public static TGS_Func_OutTyped_In2<ShortVector, ShortVector, ShortVector> func_mul() {
+        public static TGS_FuncMTUCE_OutTyped_In2<ShortVector, ShortVector, ShortVector> func_mul() {
             return (va, vb) -> va.mul(vb);
         }
 
-        public static TGS_Func_OutTyped_In2<ShortVector, ShortVector, ShortVector> func_sub() {
+        public static TGS_FuncMTUCE_OutTyped_In2<ShortVector, ShortVector, ShortVector> func_sub() {
             return (va, vb) -> va.sub(vb);
         }
 
-        public static TGS_Func_OutTyped_In2<ShortVector, ShortVector, ShortVector> func_add() {
+        public static TGS_FuncMTUCE_OutTyped_In2<ShortVector, ShortVector, ShortVector> func_add() {
             return (va, vb) -> va.add(vb);
         }
 
-//    public static TGS_Func_OutTyped_In2<ShortVector, ShortVector, ShortVector> func_normal() {
+//    public static TGS_FuncMTUCE_OutTyped_In2<ShortVector, ShortVector, ShortVector> func_normal() {
 //        return (va, vb) -> va.mul(va).add(vb.mul(vb)).sqrt();
 //    }
-        public static TGS_Func_OutTyped_In2<ShortVector, ShortVector, ShortVector> func_unknown() {
+        public static TGS_FuncMTUCE_OutTyped_In2<ShortVector, ShortVector, ShortVector> func_unknown() {
             return (va, vb) -> va.mul(va).add(vb.mul(vb)).neg();
         }
 
     }
 
     public static class FuncInteger {
-//    public static TGS_Func_OutTyped_In2<IntVector, IntVector, IntVector> func_pow() {
+//    public static TGS_FuncMTUCE_OutTyped_In2<IntVector, IntVector, IntVector> func_pow() {
 //        return (va, vb) -> va.pow(vb);
 //    }
 
-        public static TGS_Func_OutTyped_In2<IntVector, IntVector, IntVector> func_div() {
+        public static TGS_FuncMTUCE_OutTyped_In2<IntVector, IntVector, IntVector> func_div() {
             return (va, vb) -> va.div(vb);
         }
 
-        public static TGS_Func_OutTyped_In2<IntVector, IntVector, IntVector> func_mul() {
+        public static TGS_FuncMTUCE_OutTyped_In2<IntVector, IntVector, IntVector> func_mul() {
             return (va, vb) -> va.mul(vb);
         }
 
-        public static TGS_Func_OutTyped_In2<IntVector, IntVector, IntVector> func_sub() {
+        public static TGS_FuncMTUCE_OutTyped_In2<IntVector, IntVector, IntVector> func_sub() {
             return (va, vb) -> va.sub(vb);
         }
 
-        public static TGS_Func_OutTyped_In2<IntVector, IntVector, IntVector> func_add() {
+        public static TGS_FuncMTUCE_OutTyped_In2<IntVector, IntVector, IntVector> func_add() {
             return (va, vb) -> va.add(vb);
         }
 
-//    public static TGS_Func_OutTyped_In2<IntVector, IntVector, IntVector> func_normal() {
+//    public static TGS_FuncMTUCE_OutTyped_In2<IntVector, IntVector, IntVector> func_normal() {
 //        return (va, vb) -> va.mul(va).add(vb.mul(vb)).sqrt();
 //    }
-        public static TGS_Func_OutTyped_In2<IntVector, IntVector, IntVector> func_unknown() {
+        public static TGS_FuncMTUCE_OutTyped_In2<IntVector, IntVector, IntVector> func_unknown() {
             return (va, vb) -> va.mul(va).add(vb.mul(vb)).neg();
         }
     }
 
     public static class FuncLong {
-//    public static TGS_Func_OutTyped_In2<LongVector, LongVector, LongVector> func_pow() {
+//    public static TGS_FuncMTUCE_OutTyped_In2<LongVector, LongVector, LongVector> func_pow() {
 //        return (va, vb) -> va.pow(vb);
 //    }
 
-        public static TGS_Func_OutTyped_In2<LongVector, LongVector, LongVector> func_div() {
+        public static TGS_FuncMTUCE_OutTyped_In2<LongVector, LongVector, LongVector> func_div() {
             return (va, vb) -> va.div(vb);
         }
 
-        public static TGS_Func_OutTyped_In2<LongVector, LongVector, LongVector> func_mul() {
+        public static TGS_FuncMTUCE_OutTyped_In2<LongVector, LongVector, LongVector> func_mul() {
             return (va, vb) -> va.mul(vb);
         }
 
-        public static TGS_Func_OutTyped_In2<LongVector, LongVector, LongVector> func_sub() {
+        public static TGS_FuncMTUCE_OutTyped_In2<LongVector, LongVector, LongVector> func_sub() {
             return (va, vb) -> va.sub(vb);
         }
 
-        public static TGS_Func_OutTyped_In2<LongVector, LongVector, LongVector> func_add() {
+        public static TGS_FuncMTUCE_OutTyped_In2<LongVector, LongVector, LongVector> func_add() {
             return (va, vb) -> va.add(vb);
         }
 
-//    public static TGS_Func_OutTyped_In2<LongVector, LongVector, LongVector> func_normal() {
+//    public static TGS_FuncMTUCE_OutTyped_In2<LongVector, LongVector, LongVector> func_normal() {
 //        return (va, vb) -> va.mul(va).add(vb.mul(vb)).sqrt();
 //    }
-        public static TGS_Func_OutTyped_In2<LongVector, LongVector, LongVector> func_unknown() {
+        public static TGS_FuncMTUCE_OutTyped_In2<LongVector, LongVector, LongVector> func_unknown() {
             return (va, vb) -> va.mul(va).add(vb.mul(vb)).neg();
         }
     }
 
     public static class FuncFloat {
 
-        public static TGS_Func_OutTyped_In2<FloatVector, FloatVector, FloatVector> func_pow() {
+        public static TGS_FuncMTUCE_OutTyped_In2<FloatVector, FloatVector, FloatVector> func_pow() {
             return (va, vb) -> va.pow(vb);
         }
 
-        public static TGS_Func_OutTyped_In2<FloatVector, FloatVector, FloatVector> func_div() {
+        public static TGS_FuncMTUCE_OutTyped_In2<FloatVector, FloatVector, FloatVector> func_div() {
             return (va, vb) -> va.div(vb);
         }
 
-        public static TGS_Func_OutTyped_In2<FloatVector, FloatVector, FloatVector> func_mul() {
+        public static TGS_FuncMTUCE_OutTyped_In2<FloatVector, FloatVector, FloatVector> func_mul() {
             return (va, vb) -> va.mul(vb);
         }
 
-        public static TGS_Func_OutTyped_In2<FloatVector, FloatVector, FloatVector> func_sub() {
+        public static TGS_FuncMTUCE_OutTyped_In2<FloatVector, FloatVector, FloatVector> func_sub() {
             return (va, vb) -> va.sub(vb);
         }
 
-        public static TGS_Func_OutTyped_In2<FloatVector, FloatVector, FloatVector> func_add() {
+        public static TGS_FuncMTUCE_OutTyped_In2<FloatVector, FloatVector, FloatVector> func_add() {
             return (va, vb) -> va.add(vb);
         }
 
-        public static TGS_Func_OutTyped_In2<FloatVector, FloatVector, FloatVector> func_normal() {
+        public static TGS_FuncMTUCE_OutTyped_In2<FloatVector, FloatVector, FloatVector> func_normal() {
             return (va, vb) -> va.mul(va).add(vb.mul(vb)).sqrt();
         }
 
-        public static TGS_Func_OutTyped_In2<FloatVector, FloatVector, FloatVector> func_unknown() {
+        public static TGS_FuncMTUCE_OutTyped_In2<FloatVector, FloatVector, FloatVector> func_unknown() {
             return (va, vb) -> va.mul(va).add(vb.mul(vb)).neg();
         }
     }
 
     public static class FuncDouble {
 
-        public static TGS_Func_OutTyped_In2<DoubleVector, DoubleVector, DoubleVector> func_pow() {
+        public static TGS_FuncMTUCE_OutTyped_In2<DoubleVector, DoubleVector, DoubleVector> func_pow() {
             return (va, vb) -> va.pow(vb);
         }
 
-        public static TGS_Func_OutTyped_In2<DoubleVector, DoubleVector, DoubleVector> func_div() {
+        public static TGS_FuncMTUCE_OutTyped_In2<DoubleVector, DoubleVector, DoubleVector> func_div() {
             return (va, vb) -> va.div(vb);
         }
 
-        public static TGS_Func_OutTyped_In2<DoubleVector, DoubleVector, DoubleVector> func_mul() {
+        public static TGS_FuncMTUCE_OutTyped_In2<DoubleVector, DoubleVector, DoubleVector> func_mul() {
             return (va, vb) -> va.mul(vb);
         }
 
-        public static TGS_Func_OutTyped_In2<DoubleVector, DoubleVector, DoubleVector> func_sub() {
+        public static TGS_FuncMTUCE_OutTyped_In2<DoubleVector, DoubleVector, DoubleVector> func_sub() {
             return (va, vb) -> va.sub(vb);
         }
 
-        public static TGS_Func_OutTyped_In2<DoubleVector, DoubleVector, DoubleVector> func_add() {
+        public static TGS_FuncMTUCE_OutTyped_In2<DoubleVector, DoubleVector, DoubleVector> func_add() {
             return (va, vb) -> va.add(vb);
         }
 
-        public static TGS_Func_OutTyped_In2<DoubleVector, DoubleVector, DoubleVector> func_normal() {
+        public static TGS_FuncMTUCE_OutTyped_In2<DoubleVector, DoubleVector, DoubleVector> func_normal() {
             return (va, vb) -> va.mul(va).add(vb.mul(vb)).sqrt();
         }
 
-        public static TGS_Func_OutTyped_In2<DoubleVector, DoubleVector, DoubleVector> func_unknown() {
+        public static TGS_FuncMTUCE_OutTyped_In2<DoubleVector, DoubleVector, DoubleVector> func_unknown() {
             return (va, vb) -> va.mul(va).add(vb.mul(vb)).neg();
         }
     }
