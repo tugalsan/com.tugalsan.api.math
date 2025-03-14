@@ -312,6 +312,18 @@ public class TGS_MathUtils {
                 .average();
     }
 
+    public static OptionalDouble average(Long skip, long... val) {
+        return Arrays.stream(val)
+                .filter(i -> skip == null ? true : skip != i)
+                .average();
+    }
+
+    public static OptionalDouble average(Long skip, double... val) {
+        return Arrays.stream(val)
+                .filter(i -> skip == null ? true : skip != i)
+                .average();
+    }
+
     public static OptionalDouble average(Integer skip, int... val) {
         return Arrays.stream(val)
                 .filter(i -> skip == null ? true : skip != i)
@@ -324,6 +336,18 @@ public class TGS_MathUtils {
                 .min();
     }
 
+    public static OptionalLong min(Long skip, long... val) {
+        return Arrays.stream(val)
+                .filter(i -> skip == null ? true : skip != i)
+                .min();
+    }
+
+    public static OptionalDouble min(Long skip, double... val) {
+        return Arrays.stream(val)
+                .filter(i -> skip == null ? true : skip != i)
+                .min();
+    }
+
     public static OptionalDouble min(Integer skip, double... val) {
         return Arrays.stream(val)
                 .filter(i -> skip == null ? true : skip != i)
@@ -331,6 +355,18 @@ public class TGS_MathUtils {
     }
 
     public static OptionalInt max(Integer skip, int... val) {
+        return Arrays.stream(val)
+                .filter(i -> skip == null ? true : skip != i)
+                .max();
+    }
+
+    public static OptionalLong max(Long skip, long... val) {
+        return Arrays.stream(val)
+                .filter(i -> skip == null ? true : skip != i)
+                .max();
+    }
+
+    public static OptionalDouble max(Long skip, double... val) {
         return Arrays.stream(val)
                 .filter(i -> skip == null ? true : skip != i)
                 .max();
