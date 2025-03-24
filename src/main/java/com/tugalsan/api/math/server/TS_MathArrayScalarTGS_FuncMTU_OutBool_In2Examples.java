@@ -1,48 +1,48 @@
 package com.tugalsan.api.math.server;
 
-import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE_OutBool_In2;
+import com.tugalsan.api.function.client.maythrowexceptions.unchecked.TGS_FuncMTU_OutBool_In2;
 import java.util.Objects;
 
-public class TS_MathArrayScalarTGS_FuncMTUCE_OutBool_In2Examples {
+public class TS_MathArrayScalarTGS_FuncMTU_OutBool_In2Examples {
 
     public static class FuncByte {
 
-        public static TGS_FuncMTUCE_OutBool_In2<Byte, Byte> func_eq() {
+        public static TGS_FuncMTU_OutBool_In2<Byte, Byte> func_eq() {
             return (a, b) -> Objects.equals(a, b);
         }
     }
 
     public static class FuncShort {
 
-        public static TGS_FuncMTUCE_OutBool_In2<Short, Short> func_eq() {
+        public static TGS_FuncMTU_OutBool_In2<Short, Short> func_eq() {
             return (a, b) -> Objects.equals(a, b);
         }
     }
 
     public static class FuncInteger {
 
-        public static TGS_FuncMTUCE_OutBool_In2<Integer, Integer> func_eq() {
+        public static TGS_FuncMTU_OutBool_In2<Integer, Integer> func_eq() {
             return (a, b) -> Objects.equals(a, b);
         }
     }
 
     public static class FuncLong {
 
-        public static TGS_FuncMTUCE_OutBool_In2<Long, Long> func_eq() {
+        public static TGS_FuncMTU_OutBool_In2<Long, Long> func_eq() {
             return (a, b) -> Objects.equals(a, b);
         }
     }
 
     public static class FuncFloat {
 
-        public static TGS_FuncMTUCE_OutBool_In2<Float, Float> func_eq() {
+        public static TGS_FuncMTU_OutBool_In2<Float, Float> func_eq() {
             return (a, b) -> Objects.equals(a, b);
         }
     }
 
     public static class FuncDouble {
 
-        public static TGS_FuncMTUCE_OutBool_In2<Double, Double> func_eq() {
+        public static TGS_FuncMTU_OutBool_In2<Double, Double> func_eq() {
             return (a, b) -> Objects.equals(a, b);
         }
     }

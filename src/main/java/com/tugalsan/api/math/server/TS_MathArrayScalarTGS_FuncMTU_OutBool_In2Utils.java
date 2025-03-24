@@ -1,13 +1,13 @@
 package com.tugalsan.api.math.server;
 
-import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE_OutBool_In2;
+import com.tugalsan.api.function.client.maythrowexceptions.unchecked.TGS_FuncMTU_OutBool_In2;
 import java.util.stream.IntStream;
 
-public class TS_MathArrayScalarTGS_FuncMTUCE_OutBool_In2Utils {
+public class TS_MathArrayScalarTGS_FuncMTU_OutBool_In2Utils {
 
     public static void bytes(boolean parallel,
             boolean[] output, byte[] inputA, byte[] inputB,
-            TGS_FuncMTUCE_OutBool_In2<Byte, Byte> exeScalar) {
+            TGS_FuncMTU_OutBool_In2<Byte, Byte> exeScalar) {
         if (parallel) {
             IntStream.range(0, inputA.length).parallel().forEach(i -> output[i] = exeScalar.call(inputA[i], inputB[i]));
         } else {
@@ -17,7 +17,7 @@ public class TS_MathArrayScalarTGS_FuncMTUCE_OutBool_In2Utils {
 
     public static void shorts(boolean parallel,
             boolean[] output, short[] inputA, short[] inputB,
-            TGS_FuncMTUCE_OutBool_In2<Short, Short> exeScalar) {
+            TGS_FuncMTU_OutBool_In2<Short, Short> exeScalar) {
         if (parallel) {
             IntStream.range(0, inputA.length).parallel().forEach(i -> output[i] = exeScalar.call(inputA[i], inputB[i]));
         } else {
@@ -27,7 +27,7 @@ public class TS_MathArrayScalarTGS_FuncMTUCE_OutBool_In2Utils {
 
     public static void integers(boolean parallel,
             boolean[] output, int[] inputA, int[] inputB,
-            TGS_FuncMTUCE_OutBool_In2<Integer, Integer> exeScalar) {
+            TGS_FuncMTU_OutBool_In2<Integer, Integer> exeScalar) {
         if (parallel) {
             IntStream.range(0, inputA.length).parallel().forEach(i -> output[i] = exeScalar.call(inputA[i], inputB[i]));
         } else {
@@ -37,7 +37,7 @@ public class TS_MathArrayScalarTGS_FuncMTUCE_OutBool_In2Utils {
 
     public static void longs(boolean parallel,
             boolean[] output, long[] inputA, long[] inputB,
-            TGS_FuncMTUCE_OutBool_In2<Long, Long> exeScalar) {
+            TGS_FuncMTU_OutBool_In2<Long, Long> exeScalar) {
         if (parallel) {
             IntStream.range(0, inputA.length).parallel().forEach(i -> output[i] = exeScalar.call(inputA[i], inputB[i]));
         } else {
@@ -47,7 +47,7 @@ public class TS_MathArrayScalarTGS_FuncMTUCE_OutBool_In2Utils {
 
     public static void floats(boolean parallel,
             boolean[] output, float[] inputA, float[] inputB,
-            TGS_FuncMTUCE_OutBool_In2<Float, Float> exeScalar) {
+            TGS_FuncMTU_OutBool_In2<Float, Float> exeScalar) {
         if (parallel) {
             IntStream.range(0, inputA.length).parallel().forEach(i -> output[i] = exeScalar.call(inputA[i], inputB[i]));
         } else {
@@ -57,7 +57,7 @@ public class TS_MathArrayScalarTGS_FuncMTUCE_OutBool_In2Utils {
 
     public static void doubles(boolean parallel,
             boolean[] output, double[] inputA, double[] inputB,
-            TGS_FuncMTUCE_OutBool_In2<Double, Double> exeScalar) {
+            TGS_FuncMTU_OutBool_In2<Double, Double> exeScalar) {
         if (parallel) {
             IntStream.range(0, inputA.length).parallel().forEach(i -> output[i] = exeScalar.call(inputA[i], inputB[i]));
         } else {
