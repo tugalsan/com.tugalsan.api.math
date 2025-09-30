@@ -1,7 +1,7 @@
 package com.tugalsan.api.math.server;
 
-import com.tugalsan.api.math.client.*;
-import com.tugalsan.api.tuple.client.*;
+import module com.tugalsan.api.math;
+import module com.tugalsan.api.tuple;
 import java.util.*;
 
 public class TS_MathCurve {

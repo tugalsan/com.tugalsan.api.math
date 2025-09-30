@@ -1,10 +1,10 @@
 package com.tugalsan.api.math.server;
 
-import com.tugalsan.api.list.client.*;
-import com.tugalsan.api.log.server.*;
-import com.tugalsan.api.math.client.*;
-import com.tugalsan.api.tuple.client.*;
-import com.tugalsan.api.string.client.*;
+import module com.tugalsan.api.list;
+import module com.tugalsan.api.log;
+import module com.tugalsan.api.math;
+import module com.tugalsan.api.tuple;
+import module com.tugalsan.api.string;
 import java.util.stream.*;
 
 public class TS_MathApproximateUtils {

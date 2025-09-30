@@ -1,6 +1,6 @@
 package com.tugalsan.api.math.server;
 
-import com.tugalsan.api.function.client.maythrowexceptions.unchecked.TGS_FuncMTU_OutTyped_In2;
+import module com.tugalsan.api.function;
 import jdk.incubator.vector.ByteVector;
 import jdk.incubator.vector.DoubleVector;
 import jdk.incubator.vector.FloatVector;

@@ -1,7 +1,7 @@
 package com.tugalsan.api.math.server;
 
-import com.tugalsan.api.list.client.*;
-import com.tugalsan.api.tuple.client.*;
+import module com.tugalsan.api.list;
+import module com.tugalsan.api.tuple;
 import java.util.*;
 import org.apache.commons.math3.analysis.interpolation.*;
 import org.apache.commons.math3.analysis.polynomials.*;
