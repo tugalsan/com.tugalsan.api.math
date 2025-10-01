@@ -2,9 +2,8 @@ package com.tugalsan.api.math.server;
 
 import module com.tugalsan.api.list;
 import module com.tugalsan.api.tuple;
+import module commons.math3;
 import java.util.*;
-import org.apache.commons.math3.analysis.interpolation.*;
-import org.apache.commons.math3.analysis.polynomials.*;
 
 public class TS_MathCurveDriver {
 

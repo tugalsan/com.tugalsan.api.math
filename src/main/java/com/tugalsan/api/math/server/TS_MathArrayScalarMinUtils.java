@@ -1,10 +1,7 @@
 package com.tugalsan.api.math.server;
 
-import java.util.Arrays;
-import java.util.OptionalDouble;
-import java.util.OptionalInt;
-import java.util.OptionalLong;
-import java.util.stream.IntStream;
+import java.util.*;
+import java.util.stream.*;
 
 public class TS_MathArrayScalarMinUtils {
 

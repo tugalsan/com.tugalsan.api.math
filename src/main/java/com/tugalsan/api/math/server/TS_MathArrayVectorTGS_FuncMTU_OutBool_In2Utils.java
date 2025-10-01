@@ -1,15 +1,7 @@
 package com.tugalsan.api.math.server;
 
 import module com.tugalsan.api.function;
-import module com.tugalsan.api.function;
-import jdk.incubator.vector.ByteVector;
-import jdk.incubator.vector.DoubleVector;
-import jdk.incubator.vector.FloatVector;
-import jdk.incubator.vector.IntVector;
-import jdk.incubator.vector.LongVector;
-import jdk.incubator.vector.ShortVector;
-import jdk.incubator.vector.VectorMask;
-import jdk.incubator.vector.VectorSpecies;
+import module jdk.incubator.vector;
 
 public class TS_MathArrayVectorTGS_FuncMTU_OutBool_In2Utils {
 

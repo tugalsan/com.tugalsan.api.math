@@ -1,7 +1,7 @@
 package com.tugalsan.api.math.server;
 
 import module com.tugalsan.api.function;
-import java.util.stream.IntStream;
+import java.util.stream.*;
 
 public class TS_MathArrayScalarTGS_FuncMTU_OutBool_In2Utils {
 

@@ -1,8 +1,8 @@
 package com.tugalsan.api.math.server;
 
-import java.util.List;
-import java.util.stream.Collectors;
-import org.paukov.combinatorics3.Generator;
+import module combinatoricslib3;
+import java.util.*;
+import java.util.stream.*;
 
 public class TS_MathPermutation {
 
