@@ -5,6 +5,10 @@ import java.util.stream.*;
 
 public class TS_MathArrayScalarMaxUtils {
 
+    private TS_MathArrayScalarMaxUtils() {
+
+    }
+
     public OptionalDouble floats_to_double(boolean parallel, float[] arr) {
         if (parallel) {
             return IntStream.range(0, arr.length).parallel().mapToDouble(i -> arr[i]).max();

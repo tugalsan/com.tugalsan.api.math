@@ -4,6 +4,10 @@ import module jdk.incubator.vector;
 
 public class TS_MathArrayVectorSumUtils {
 
+    private TS_MathArrayVectorSumUtils() {
+
+    }
+
     public static byte bytes(TS_MathArrayVectorTypes vectorType, byte[] input) {
         return switch (vectorType) {
             case TS_MathArrayVectorTypes._0064, TS_MathArrayVectorTypes._0128, TS_MathArrayVectorTypes._0256, TS_MathArrayVectorTypes._0512, TS_MathArrayVectorTypes._MAX, TS_MathArrayVectorTypes._PREFERRED ->

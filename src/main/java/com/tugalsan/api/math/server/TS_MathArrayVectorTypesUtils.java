@@ -4,6 +4,10 @@ import module jdk.incubator.vector;
 
 public class TS_MathArrayVectorTypesUtils {
 
+    private TS_MathArrayVectorTypesUtils() {
+
+    }
+
     public static VectorSpecies<Byte> bytes(TS_MathArrayVectorTypes vectorType) {
         return switch (vectorType) {
             case TS_MathArrayVectorTypes._0064 ->

@@ -1,6 +1,10 @@
 package com.tugalsan.api.math.server;
 
 public class TS_MathMatrix4fUtils {
+
+    private TS_MathMatrix4fUtils() {
+
+    }
 //    public static void main(String[] s) {
 //        float[][] x = createEmptyMatrix();
 //        float[][] y = createEmptyMatrix();

@@ -1,6 +1,10 @@
 package com.tugalsan.api.math.server;
 
 public class TS_MathPercentUtils {
+    
+    private TS_MathPercentUtils(){
+        
+    }
 
     //DECIMAL
     public static Integer dec(double numerator, double denominator) {

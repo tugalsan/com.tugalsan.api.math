@@ -5,6 +5,10 @@ import module jdk.incubator.vector;
 
 public class TS_MathArrayVectorFunc_OutTyped_In2Utils {
 
+    private TS_MathArrayVectorFunc_OutTyped_In2Utils() {
+
+    }
+
     public static void bytes(TS_MathArrayVectorTypes vectorType,
             byte[] output, byte[] inputA, byte[] inputB,
             TGS_FuncMTU_OutTyped_In2<ByteVector, ByteVector, ByteVector> exeVector,

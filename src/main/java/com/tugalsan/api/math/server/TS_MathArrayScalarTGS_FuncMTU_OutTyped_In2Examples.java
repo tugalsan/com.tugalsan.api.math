@@ -4,6 +4,10 @@ import module com.tugalsan.api.function;
 
 public class TS_MathArrayScalarTGS_FuncMTU_OutTyped_In2Examples {
 
+    private TS_MathArrayScalarTGS_FuncMTU_OutTyped_In2Examples() {
+
+    }
+
     public static class FuncByte {
 //    public static TGS_FuncMTU_OutTyped_In2<Byte, Byte, Byte> func_pow() {
 //        return (a, b) -> (int) Math.pow(a, b);

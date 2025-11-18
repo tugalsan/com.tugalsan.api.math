@@ -5,6 +5,10 @@ import module jdk.incubator.vector;
 
 public class TS_MathArrayVectorFunc_OutTyped_In2Examples {
 
+    private TS_MathArrayVectorFunc_OutTyped_In2Examples() {
+
+    }
+
     public static class FuncByte {
 //    public static TGS_FuncMTU_OutTyped_In2<ByteVector, ByteVector, ByteVector> func_pow() {
 //        return (va, vb) -> va.pow(vb);

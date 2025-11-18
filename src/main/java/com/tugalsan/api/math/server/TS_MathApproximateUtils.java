@@ -9,7 +9,11 @@ import java.util.stream.*;
 
 public class TS_MathApproximateUtils {
 
-    final private static TS_Log d = TS_Log.of( TS_MathApproximateUtils.class);
+    private TS_MathApproximateUtils() {
+
+    }
+
+    final private static TS_Log d = TS_Log.of(TS_MathApproximateUtils.class);
 
     public static void testApprox() {
         var known_input_values = new double[]{10, 20, 30};

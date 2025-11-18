@@ -5,6 +5,10 @@ import java.util.*;
 
 public class TS_MathArrayScalarTGS_FuncMTU_OutBool_In2Examples {
 
+    private TS_MathArrayScalarTGS_FuncMTU_OutBool_In2Examples() {
+
+    }
+
     public static class FuncByte {
 
         public static TGS_FuncMTU_OutBool_In2<Byte, Byte> func_eq() {

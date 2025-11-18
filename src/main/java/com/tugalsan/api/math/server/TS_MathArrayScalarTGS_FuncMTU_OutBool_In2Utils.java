@@ -5,6 +5,10 @@ import java.util.stream.*;
 
 public class TS_MathArrayScalarTGS_FuncMTU_OutBool_In2Utils {
 
+    private TS_MathArrayScalarTGS_FuncMTU_OutBool_In2Utils() {
+
+    }
+
     public static void bytes(boolean parallel,
             boolean[] output, byte[] inputA, byte[] inputB,
             TGS_FuncMTU_OutBool_In2<Byte, Byte> exeScalar) {
